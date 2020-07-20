@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.settings</OriginalElement>
+  <nodes>
+    <node x="211.0" y="0.0">79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.users</node>
+    <node x="20.25" y="598.0">79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.attachments</node>
+    <node x="0.0" y="33.0">79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.appeal_kind</node>
+    <node x="205.25" y="598.0">79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.redmine_comments</node>
+    <node x="99.25" y="255.0">79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.user_appeal</node>
+    <node x="434.0" y="0.0">79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.settings</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.attachments" target="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.user_appeal">
+      <point x="0.0" y="-91.5" />
+      <point x="102.75" y="573.0" />
+      <point x="148.5" y="573.0" />
+      <point x="-49.25" y="146.5" />
+    </edge>
+    <edge source="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.user_appeal" target="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.appeal_kind">
+      <point x="-49.25" y="-146.5" />
+      <point x="148.5" y="230.0" />
+      <point x="95.5" y="230.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.user_appeal" target="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.users">
+      <point x="49.25" y="-146.5" />
+      <point x="247.0" y="230.0" />
+      <point x="300.0" y="230.0" />
+      <point x="0.0" y="102.5" />
+    </edge>
+    <edge source="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.redmine_comments" target="79adcbb3-5d72-42c1-aba5-57e4ffbb0a9b.TABLE:postgres.cur_presentation.user_appeal">
+      <point x="0.0" y="-91.5" />
+      <point x="292.75" y="573.0" />
+      <point x="247.0" y="573.0" />
+      <point x="49.25" y="146.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8426966292134831" x="299.5" y="390.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
