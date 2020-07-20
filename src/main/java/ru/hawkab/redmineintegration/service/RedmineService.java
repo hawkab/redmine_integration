@@ -60,7 +60,6 @@ public class RedmineService {
      */
     public Issue getIssue(AppealEntity appeal) throws RedmineException {
         Issue redmineIssue = redmineApi.getIssueManager().getIssueById(appeal.getRedmineId(), Include.journals);
-        redmineIssue.getJournals();
         return redmineIssue;
     }
 
