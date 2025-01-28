@@ -1,25 +1,32 @@
-Навигация
-* **Общее описание** (Вы здесь)
-* [Установка](./docs/INSTALLATION.md)
-* [Настройка](./docs/CONFIGURE.md)
-* [Поставка](./docs/DEPLOYMENT.md)
+EN | [RU](README_ru.md) 
+
+**Navigation**
+
+- **Overview** (You are here)
+- [Installation](./docs/INSTALLATION.md)
+- [Configuration](./docs/CONFIGURE.md)
+- [Deployment](./docs/DEPLOYMENT.md)
 
 # ABOUT
-Данное приложение создаёт новые задачи в системе Redmine, на основе данных из таблицы в БД.
 
-## Схема базы данных
+This application creates new tasks in the Redmine system based on data from a database table.
+
+## Database Schema
+
 ![schema](./docs/database_diagram.png)
 
-## Словесное описание алгоритма работы
+## Verbal Description of the Algorithm
 
-### Выгрузка обращений
-1. Периодически ищет новые (статус `CREATED`) или необработанные (статус `SENT_ERROR`) записи в таблице `user_appeal` в БД 
-2. В случае нахождения, вызывает [Redmine API](https://www.redmine.org/projects/redmine/wiki/Rest_api):
-3. Загружает прикреплённые к обращению файлы - вызывает `POST` метод [files](https://www.redmine.org/projects/redmine/wiki/Rest_Files), сохраняет полученные идентификаторы
-4. Создаёт объект Issue на основе данных в таблицах обращения и загружает их на сервер Redmine - вызывает `POST` [issues](https://www.redmine.org/projects/redmine/wiki/Rest_Issues) 
+### Exporting Requests
 
-### Загрузка обращений
-1. Периодически ищет необработанные (статусы `SENT`, `EXTERNAL_COMMENT`, `EXTERNAL_COMMENT`, `INTERNAL_COMMENT`, `HANDLING`) записи в таблице `user_appeal` в БД 
-2. В случае нахождения, вызывает [Redmine API](https://www.redmine.org/projects/redmine/wiki/Rest_api):
-3. Загружает issue - вызывает `GET` метод [issues](https://www.redmine.org/projects/redmine/wiki/Rest_Issues) с флагом `include journals`, сохраняет полученные статусы в БД
-4. Создаёт объект `CommentEntity` на основе полученных `Journal` и сохраняет в таблицу `redmine_comments`
+1. Periodically searches for new (status `CREATED`) or unprocessed (status `SENT_ERROR`) records in the `user_appeal` table in the database.
+2. If found, it calls the [Redmine API](https://www.redmine.org/projects/redmine/wiki/Rest_api):
+   1. Uploads files attached to the request by calling the `POST` method of [files](https://www.redmine.org/projects/redmine/wiki/Rest_Files) and saves the obtained identifiers.
+   2. Creates an Issue object based on data in the request tables and uploads them to the Redmine server by calling the `POST` method of [issues](https://www.redmine.org/projects/redmine/wiki/Rest_Issues).
+
+### Importing Requests
+
+1. Periodically searches for unprocessed (statuses `SENT`, `EXTERNAL_COMMENT`, `INTERNAL_COMMENT`, `HANDLING`) records in the `user_appeal` table in the database.
+2. If found, it calls the [Redmine API](https://www.redmine.org/projects/redmine/wiki/Rest_api):
+   1. Downloads the issue by calling the `GET` method of [issues](https://www.redmine.org/projects/redmine/wiki/Rest_Issues) with the `include journals` flag and saves the obtained statuses in the database.
+   2. Creates a `CommentEntity` object based on the received `Journal` entries and saves it in the `redmine_comments` table.
